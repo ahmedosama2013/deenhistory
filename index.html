@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>DeenHistory</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="icon-512.png">
+    <link rel="apple-touch-icon" href="icon-512.png">
+</head>
+<body>
+
+    <div id="sidebar-overlay" class="sidebar-overlay" onclick="toggleMobileSidebar()"></div>
+
+    <div id="loading-screen">
+        <div class="loader-container">
+            <div class="loader-brand">DeenHistory</div>
+            <div id="loader-status" class="loader-status-text">Verifying Historical Records...</div>
+            <div class="loader-track">
+                <div id="loader-progress" class="loader-bar"></div>
+            </div>
+            <div id="loader-number" class="loader-counter">10%</div>
+        </div>
+    </div>
+
+    <aside id="global-sidebar">
+        <div class="sidebar-header-wrapper">
+            <div class="archive-brand">DeenHistory</div>
+            <button class="btn-close-sidebar" onclick="toggleMobileSidebar()" aria-label="Close menu">×</button>
+        </div>
+        <div class="nav-group">
+            <div class="nav-section-label">Home Portal</div>
+            <a class="nav-item active" id="nav-landing" onclick="switchArchiveTab('panel-landing', this)">Archive Dashboard</a>
+
+            <div class="nav-section-label">Divine Revelation</div>
+            <a class="nav-item" onclick="switchArchiveTab('panel-quran', this)">The Holy Quran</a>
+
+            <div class="nav-section-label">Prophets & Seerah</div>
+            <a class="nav-item" onclick="switchArchiveTab('panel-prophets', this)">The 25 Prophets</a>
+            <a class="nav-item" onclick="switchArchiveTab('panel-seerah', this)">Seerah Phases</a>
+            <a class="nav-item" onclick="switchArchiveTab('panel-duas', this)">Prophetic Duas</a>
+
+            <div class="nav-section-label">Companions & Eras</div>
+            <a class="nav-item" onclick="switchArchiveTab('panel-sahabah', this)">The Sahabah</a>
+            <a class="nav-item" onclick="switchArchiveTab('panel-battles', this)">Historical Battles</a>
+            <a class="nav-item" onclick="switchArchiveTab('panel-eras', this)">Islamic Empires</a>
+
+            <div class="nav-section-label">Divine Justice</div>
+            <a class="nav-item" onclick="switchArchiveTab('panel-opponents', this)">Fallen Tyrants</a>
+            <a class="nav-item" onclick="switchArchiveTab('panel-tensigns', this)">10 Major Signs</a>
+        </div>
+    </aside>
+
+    <main>
+        <div class="content-container">
+            <header>
+                <button class="menu-trigger" onclick="toggleMobileSidebar()">☰ Menu</button>
+
+                <div class="search-container">
+                    <div class="search-input-wrapper">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="global-search-bar" class="search-bar"
+                            placeholder="Search archive (e.g. Badr, Musa, Dajjal)..."
+                            oninput="handleSearchEngineInput(this.value)"
+                            onfocus="showAutocompletePanel()"
+                            onblur="hideAutocompletePanelDelayed()">
+                    </div>
+                    <div id="search-autocomplete-panel" class="search-autocomplete-panel"></div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="btn-action" onclick="toggleColorScheme()">🌓 Theme</button>
+                </div>
+            </header>
+
+            <section id="panel-search-results" class="archive-panel">
+                <h1 class="panel-heading">Search Engine Discoveries</h1>
+                <div class="search-results-summary">
+                    <span id="search-results-count">0 items discovered</span>
+                    <button class="btn-action" onclick="clearSearchAndReturn()">Return to Archive</button>
+                </div>
+                <div id="search-results-injection-point"></div>
+            </section>
+
+            <section id="panel-landing" class="archive-panel active">
+                <div class="dashboard-hero-card">
+                    <div class="starfield-container" id="starfield-canvas-container"></div>
+                    <h2 class="dashboard-hero-title">Explore Islamic History</h2>
+                    <p class="dashboard-hero-desc">Discover the stories of the Prophets, the life of Prophet Muhammad (ﷺ), major historical battles, empires, and signs of the Final Hour.</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-widget-card" onclick="triggerWidgetNavigation('panel-quran')">
+                        <div class="widget-metric">114</div>
+                        <div class="widget-title">The Holy Quran</div>
+                        <div class="widget-desc">Read and listen to the complete Quran with Uthmani script and English translation.</div>
+                    </div>
+                    <div class="dashboard-widget-card" onclick="triggerWidgetNavigation('panel-prophets')">
+                        <div class="widget-metric">25</div>
+                        <div class="widget-title">Prophets Documented</div>
+                        <div class="widget-desc">Exhaustive theological profiling from Adam (AS) to Prophet Muhammad (ﷺ), complete with authenticated details.</div>
+                    </div>
+                    <div class="dashboard-widget-card" onclick="triggerWidgetNavigation('panel-duas')">
+                        <div class="widget-metric">10</div>
+                        <div class="widget-title">Prophetic Duas</div>
+                        <div class="widget-desc">Strategic and deeply emotional prayers extracted from the Quran, offering guidance for anxiety, success, and forgiveness.</div>
+                    </div>
+                    <div class="dashboard-widget-card" onclick="triggerWidgetNavigation('panel-seerah')">
+                        <div class="widget-metric">10</div>
+                        <div class="widget-title">Seerah Milestone Phases</div>
+                        <div class="widget-desc">A dual-epoch deep dive tracking critical geopolitical, spiritual, and systemic developments from Makkah to Madinah.</div>
+                    </div>
+                    <div class="dashboard-widget-card" onclick="triggerWidgetNavigation('panel-sahabah')">
+                        <div class="widget-metric">6</div>
+                        <div class="widget-title">Prominent Companions</div>
+                        <div class="widget-desc">Comprehensive biographical analysis of foundational Sahabah including the Khulafa al-Rashidun and military tacticians.</div>
+                    </div>
+                    <div class="dashboard-widget-card" onclick="triggerWidgetNavigation('panel-battles')">
+                        <div class="widget-metric">7</div>
+                        <div class="widget-title">Decisive Engagements</div>
+                        <div class="widget-desc">Detailed tactical records mapping epic battles from Badr and Yarmouk to the historic siege of Constantinople.</div>
+                    </div>
+                    <div class="dashboard-widget-card" onclick="triggerWidgetNavigation('panel-eras')">
+                        <div class="widget-metric">5</div>
+                        <div class="widget-title">Imperial Caliphates</div>
+                        <div class="widget-desc">Tracing architectural milestones, socio-economic developments, and Golden Age scientific polymaths across history.</div>
+                    </div>
+                    <div class="dashboard-widget-card" onclick="triggerWidgetNavigation('panel-opponents')">
+                        <div class="widget-metric">7</div>
+                        <div class="widget-title">Destroyed Civilizations</div>
+                        <div class="widget-desc">Analyzing the systematic structural collapse of proud societies that chose corporate fraud, tyranny, and military hubris.</div>
+                    </div>
+                    <div class="dashboard-widget-card" onclick="triggerWidgetNavigation('panel-tensigns')">
+                        <div class="widget-metric">10</div>
+                        <div class="widget-title">10 Major Signs</div>
+                        <div class="widget-desc">Authentic prophetic traditions detailing the major apocalyptic events preceding Judgment Day.</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 50px; padding: 25px 0; border-top: 1px solid var(--border-color); display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                    <a href="DeenHistory.apk" download="DeenHistory.apk" class="btn-action" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: var(--accent-primary); color: #ffffff; padding: 10px 20px; font-size: 0.9rem; font-weight: 600; border-radius: var(--radius-pill, 20px);">
+                        📱 Download APK for Android
+                    </a>
+                    <div style="color: var(--text-secondary); font-size: 0.9rem; font-family: var(--font-family);">
+                        Made By : <a href="mailto:ahmedosama2013b@gmail.com" style="color: var(--accent-primary); text-decoration: none; font-weight: 600;">ahmedosama2013b@gmail.com</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="panel-quran" class="archive-panel">
+                <h1 class="panel-heading">The Holy Quran</h1>
+                <p class="panel-sub-heading">Read and listen to the complete Quran with Uthmani script and English translations.</p>
+                <div id="quran-injection-point">
+                    <div style="text-align:center; padding: 40px; color: var(--text-secondary);">Loading Quran...</div>
+                </div>
+            </section>
+
+            <section id="panel-prophets" class="archive-panel">
+                <h1 class="panel-heading">The 25 Prophets</h1>
+                <p class="panel-sub-heading">A complete timeline tracking the twenty-five distinct messengers directly named within the holy text of the Quran.</p>
+                <div id="prophets-injection-point"></div>
+            </section>
+
+            <section id="panel-seerah" class="archive-panel">
+                <h1 class="panel-heading">Seerah Epochs & Phases</h1>
+                <p class="panel-sub-heading">An authoritative mapping of the Prophet Muhammad's (ﷺ) life divided across the Makkan and Madinan structural eras.</p>
+                <div id="seerah-injection-point"></div>
+            </section>
+
+            <section id="panel-duas" class="archive-panel">
+                <h1 class="panel-heading">Prophetic Supplications (Duas)</h1>
+                <p class="panel-sub-heading">Strategic, emotional, and powerful prayers utilized by the Messengers during moments of immense crisis, gratitude, and mission deployment.</p>
+                <div id="duas-injection-point"></div>
+            </section>
+
+            <section id="panel-sahabah" class="archive-panel">
+                <h1 class="panel-heading">The Prominent Sahabah</h1>
+                <p class="panel-sub-heading">Historical analysis of the elite companions whose governance systems, values, and devotion shaped civilization.</p>
+                <div id="sahabah-injection-point"></div>
+            </section>
+
+            <section id="panel-battles" class="archive-panel">
+                <h1 class="panel-heading">Decisive Historical Battles</h1>
+                <p class="panel-sub-heading">Analyzing geopolitical strategy, military logistics, and ethical warfare frameworks implemented during classic defenses.</p>
+                <div id="battles-injection-point"></div>
+            </section>
+
+            <section id="panel-eras" class="archive-panel">
+                <h1 class="panel-heading">Islamic Empires & Eras</h1>
+                <p class="panel-sub-heading">A detailed analysis tracking the historical milestones, scientific advancements, and expansion of Islamic societies from 632 CE onward.</p>
+                <div id="eras-injection-point"></div>
+            </section>
+
+            <section id="panel-opponents" class="archive-panel">
+                <h1 class="panel-heading">Fallen Tyrants & Broken Empires</h1>
+                <p class="panel-sub-heading">An look into the fates of historic rulers who relied on corporate greed, military oppression, and extreme pride, leading to their absolute collapse.</p>
+                <div id="opponents-injection-point"></div>
+            </section>
+
+            <section id="panel-tensigns" class="archive-panel">
+                <h1 class="panel-heading">The 10 Major Signs of Judgment Day</h1>
+                <p class="panel-sub-heading">Authentic prophetic traditions detailing the apocalyptic events that will unfold before the Final Hour.</p>
+                <div id="tensigns-injection-point"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="prophets.js"></script>
+    <script src="seerah.js"></script>
+    <script  src="duas.js"></script>
+    <script src="sahabah.js"></script>
+    <script src="battles.js"></script>
+    <script src="empires.js"></script>
+    <script src="tyrants.js"></script>
+    <script src="quran.js"></script>
+    <script src="tensigns.js"></script>
+
+    <script src="navigation.js"></script>
+    <script src="theme.js"></script>
+    <script src="loading.js"></script>
+    <script src="search.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
