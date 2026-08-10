@@ -16,3 +16,6 @@ You can download the latest Android build directly from the website release or v
 Made By : ahmedosama2013b@gmail.com
 
 Link : https://ahmedosama2013.github.io/deenhistory/
+
+
+<img width="1792" height="1080" alt="DeenHistory" src="https://github.com/user-attachments/assets/50d89667-f459-467c-8dd6-58fcfa48be60" />
