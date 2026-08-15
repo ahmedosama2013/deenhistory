@@ -17,6 +17,8 @@ Made By : ahmedosama2013b@gmail.com
 
 Link : https://ahmedosama2013.github.io/deenhistory/
 
+(ALL VERSES AND SURAHS IN THE QURAN ARE FETCHED FROM quran.com)
+
 
 
 
