@@ -133,7 +133,7 @@ async function loadSurahVerses(surahNumber, englishName) {
         // Centered Header Container Layout
         let html = `
             <div style="margin-bottom: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; width: 100%;">
-                <div style="width: 100%; display: flex; justify-content: flex-start; margin-bottom: 12px;">
+                <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 12px;">
                     <button class="btn-action" onclick="loadQuranSurahList()">← Back to All Surahs</button>
                 </div>
                 <h2 class="panel-heading" style="margin-bottom: 6px; text-align: center; width: 100%;">${json.data[0].englishName} (${json.data[0].name})</h2>
