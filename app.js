@@ -1,3 +1,22 @@
+// ==========================================================================
+// SOURCE ATTRIBUTION CONFIG
+// Edit the text on the right-hand side for each section below to credit
+// where you researched that content from (a website, book, etc).
+// Whatever you type here appears as a small badge on every card in that
+// section, replacing the old "Archival Verified" style label.
+// Leave a value as-is if you don't want to credit a source for that section.
+// ==========================================================================
+const sourceCredits = {
+    prophets: "Qur'an & Ibn Kathir's Stories of the Prophets",
+    seerah:   "Ar-Raheeq Al-Makhtum & Ibn Hisham's Seerah",
+    duas:     "The Qur'an & Hadith Collections",
+    sahabah:  "Ibn Hajar's Al-Isabah & Ar-Raheeq Al-Makhtum",
+    battles:  "Ar-Raheeq Al-Makhtum & Tabari's History",
+    eras:     "Tabari's History & Ibn Khaldun's Muqaddimah",
+    tyrants:  "Qur'an & Ibn Kathir's Tafsir",
+    tensigns: "Sahih Muslim & Ibn Kathir's Al-Fitan wal-Malahim"
+};
+
 // Global variables to manage audio queues and prevent overlap
 let currentDuaAudio = null;
 let currentDuaQueue = [];
@@ -64,7 +83,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${p.name}
                     <div class="badge-container">
-                        <span class="badge">Archival Verified</span>
+                        <span class="badge source-badge">📚 ${sourceCredits.prophets}</span>
                         <span class="badge gold">${p.titleBadge}</span>
                     </div>
                 </div>
@@ -93,7 +112,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${s.name}
                     <div class="badge-container">
-                        <span class="badge">Prophetic Era</span>
+                        <span class="badge source-badge">📚 ${sourceCredits.seerah}</span>
                         <span class="badge gold">${s.titleBadge}</span>
                     </div>
                 </div>
@@ -117,12 +136,13 @@ function compileArchivePlatform() {
     // 3. Compile Duas View
     const duasContainer = document.getElementById('duas-injection-point');
     if (duasContainer && typeof duasDatabase !== 'undefined') {
-        duasContainer.innerHTML = duasDatabase.map(d => `
+        duasContainer.innerHTML = duasDatabase.map((d, duaIndex) => `
             <div class="record-card">
                 <div class="record-title">
                     ${d.name}
                     <div class="badge-container">
-                        <span class="badge">Prophetic Supplication</span>
+                        <span class="badge serial">#${duaIndex + 1}</span>
+                        <span class="badge source-badge">📚 ${sourceCredits.duas}</span>
                         <span class="badge gold">${d.titleBadge}</span>
                     </div>
                 </div>
@@ -155,7 +175,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${s.name}
                     <div class="badge-container">
-                        <span class="badge">Companion Record</span>
+                        <span class="badge source-badge">📚 ${sourceCredits.sahabah}</span>
                         <span class="badge gold">${s.titleBadge}</span>
                     </div>
                 </div>
@@ -184,7 +204,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${b.name}
                     <div class="badge-container">
-                        <span class="badge">Military Defense</span>
+                        <span class="badge source-badge">📚 ${sourceCredits.battles}</span>
                         <span class="badge gold">${b.titleBadge}</span>
                     </div>
                 </div>
@@ -213,7 +233,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${e.name}
                     <div class="badge-container">
-                        <span class="badge">Civilizational Era</span>
+                        <span class="badge source-badge">📚 ${sourceCredits.eras}</span>
                         <span class="badge gold">${e.titleBadge}</span>
                     </div>
                 </div>
@@ -248,7 +268,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${t.name}
                     <div class="badge-container">
-                        <span class="badge">Ethical Warning</span>
+                        <span class="badge source-badge">📚 ${sourceCredits.tyrants}</span>
                         <span class="badge gold">${t.titleBadge}</span>
                     </div>
                 </div>
@@ -275,7 +295,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${s.name}
                     <div class="badge-container">
-                        <span class="badge">Eschatological Sign</span>
+                        <span class="badge source-badge">📚 ${sourceCredits.tensigns}</span>
                         <span class="badge gold">${s.titleBadge}</span>
                     </div>
                 </div>
