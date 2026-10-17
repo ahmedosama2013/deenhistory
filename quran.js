@@ -1,3 +1,8 @@
+const ICON_ARROW = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.18em;margin-right:6px;"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>';
+const ICON_PLAY = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.18em;margin-right:6px;"><polygon points="6 4 20 12 6 20 6 4"/></svg>';
+const ICON_STOP = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.18em;margin-right:6px;"><rect x="6" y="6" width="12" height="12" rx="1"/></svg>';
+const ICON_VOLUME = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.18em;margin-right:6px;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>';
+
 // Quran API Loader & Audio Player for DeenHistory
 let quranSurahsCache = null;
 let currentSurahAudioQueue = [];
@@ -17,7 +22,7 @@ function stopQuranAudio() {
         el.classList.remove('verse-card-active');
     });
     const playBtn = document.getElementById('btn-play-full-surah');
-    if (playBtn) playBtn.innerHTML = '▶ Play Entire Surah';
+    if (playBtn) playBtn.innerHTML = ICON_PLAY + 'Play Entire Surah';
 }
 
 // Fetch and display list of all 114 Surahs
@@ -83,7 +88,7 @@ function togglePlayFullSurah() {
 
     isPlayingFullSurah = true;
     currentAudioIndex = 0;
-    if (playBtn) playBtn.innerHTML = '⏹ Stop Recitation';
+    if (playBtn) playBtn.innerHTML = ICON_STOP + 'Stop Recitation';
     playNextVerseInQueue();
 }
 
@@ -134,12 +139,12 @@ async function loadSurahVerses(surahNumber, englishName) {
         let html = `
             <div style="margin-bottom: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; width: 100%;">
                 <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 12px;">
-                    <button class="btn-action" onclick="loadQuranSurahList()">← Back to All Surahs</button>
+                    <button class="btn-action" onclick="loadQuranSurahList()">${ICON_ARROW}Back to All Surahs</button>
                 </div>
                 <h2 class="panel-heading" style="margin-bottom: 6px; text-align: center; width: 100%;">${json.data[0].englishName} (${json.data[0].name})</h2>
                 <p class="panel-sub-heading" style="margin-bottom: 16px; color: var(--text-secondary); text-align: center; width: 100%;">${json.data[0].englishNameTranslation} • ${json.data[0].numberOfAyahs} Verses • Reciter: Mishary Rashid Alafasy</p>
                 <div>
-                    <button id="btn-play-full-surah" class="btn-action" style="background: var(--accent-primary); color: #fff; padding: 12px 24px; font-size: 1rem; border-radius: var(--radius-pill); cursor: pointer; display: inline-block;" onclick="togglePlayFullSurah()">▶ Play Entire Surah</button>
+                    <button id="btn-play-full-surah" class="btn-action" style="background: var(--accent-primary); color: #fff; padding: 12px 24px; font-size: 1rem; border-radius: var(--radius-pill); cursor: pointer; display: inline-block;" onclick="togglePlayFullSurah()">${ICON_PLAY}Play Entire Surah</button>
                 </div>
             </div>
             <div style="display: flex; flex-direction: column; gap: 20px;">
@@ -181,7 +186,7 @@ async function loadSurahVerses(surahNumber, englishName) {
                 <div id="verse-card-${verse.numberInSurah}" class="record-card">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                         <span class="badge">Verse ${verse.numberInSurah}</span>
-                        <button class="btn-action" style="padding: 4px 12px; font-size: 0.8rem;" onclick="playSingleVerse('${mp3Url}', 'verse-card-${verse.numberInSurah}')">🔊 Listen</button>
+                        <button class="btn-action" style="padding: 4px 12px; font-size: 0.8rem;" onclick="playSingleVerse('${mp3Url}', 'verse-card-${verse.numberInSurah}')">${ICON_VOLUME}Listen</button>
                     </div>
                     <div style="font-family: 'Amiri', serif; font-size: 1.7rem; direction: rtl; text-align: right; line-height: 2.2; color: var(--text-primary); margin-bottom: 12px;">
                         ${arText} ﴿${verse.numberInSurah}﴾
