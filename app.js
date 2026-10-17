@@ -1,3 +1,5 @@
+const ICON_BOOK = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-0.18em;margin-right:6px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>';
+
 // ==========================================================================
 // SOURCE ATTRIBUTION CONFIG
 // Edit the text on the right-hand side for each section below to credit
@@ -83,7 +85,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${p.name}
                     <div class="badge-container">
-                        <span class="badge source-badge">📚 ${sourceCredits.prophets}</span>
+                        <span class="badge source-badge">${ICON_BOOK}${sourceCredits.prophets}</span>
                         <span class="badge gold">${p.titleBadge}</span>
                     </div>
                 </div>
@@ -112,7 +114,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${s.name}
                     <div class="badge-container">
-                        <span class="badge source-badge">📚 ${sourceCredits.seerah}</span>
+                        <span class="badge source-badge">${ICON_BOOK}${sourceCredits.seerah}</span>
                         <span class="badge gold">${s.titleBadge}</span>
                     </div>
                 </div>
@@ -142,7 +144,7 @@ function compileArchivePlatform() {
                     ${d.name}
                     <div class="badge-container">
                         <span class="badge serial">#${duaIndex + 1}</span>
-                        <span class="badge source-badge">📚 ${sourceCredits.duas}</span>
+                        <span class="badge source-badge">${ICON_BOOK}${sourceCredits.duas}</span>
                         <span class="badge gold">${d.titleBadge}</span>
                     </div>
                 </div>
@@ -175,7 +177,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${s.name}
                     <div class="badge-container">
-                        <span class="badge source-badge">📚 ${sourceCredits.sahabah}</span>
+                        <span class="badge source-badge">${ICON_BOOK}${sourceCredits.sahabah}</span>
                         <span class="badge gold">${s.titleBadge}</span>
                     </div>
                 </div>
@@ -204,7 +206,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${b.name}
                     <div class="badge-container">
-                        <span class="badge source-badge">📚 ${sourceCredits.battles}</span>
+                        <span class="badge source-badge">${ICON_BOOK}${sourceCredits.battles}</span>
                         <span class="badge gold">${b.titleBadge}</span>
                     </div>
                 </div>
@@ -233,7 +235,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${e.name}
                     <div class="badge-container">
-                        <span class="badge source-badge">📚 ${sourceCredits.eras}</span>
+                        <span class="badge source-badge">${ICON_BOOK}${sourceCredits.eras}</span>
                         <span class="badge gold">${e.titleBadge}</span>
                     </div>
                 </div>
@@ -268,7 +270,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${t.name}
                     <div class="badge-container">
-                        <span class="badge source-badge">📚 ${sourceCredits.tyrants}</span>
+                        <span class="badge source-badge">${ICON_BOOK}${sourceCredits.tyrants}</span>
                         <span class="badge gold">${t.titleBadge}</span>
                     </div>
                 </div>
@@ -295,7 +297,7 @@ function compileArchivePlatform() {
                 <div class="record-title">
                     ${s.name}
                     <div class="badge-container">
-                        <span class="badge source-badge">📚 ${sourceCredits.tensigns}</span>
+                        <span class="badge source-badge">${ICON_BOOK}${sourceCredits.tensigns}</span>
                         <span class="badge gold">${s.titleBadge}</span>
                     </div>
                 </div>
