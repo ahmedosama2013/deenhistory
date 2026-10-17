@@ -20,6 +20,4 @@ Link : https://deenhistory.netlify.app
 (ALL VERSES AND SURAHS IN THE QURAN ARE FETCHED FROM https://api.alquran.cloud/v1/surah)
 
 
-
-
-<img width="1792" height="1080" alt="DeenHistory" src="https://github.com/user-attachments/assets/50d89667-f459-467c-8dd6-58fcfa48be60" />
+<img width="1887" height="1057" alt="DeenHistory" src="https://github.com/user-attachments/assets/f367290a-98f5-41ea-8be3-15394ab42db0" />
