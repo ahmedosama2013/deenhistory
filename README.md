@@ -13,9 +13,6 @@
 You can download the latest Android build directly from the website.
 
 ---
-Made By : ahmedosama2013b@gmail.com
-
-Link : https://deenhistory.netlify.app
 
 To provide certain features, the app connects to third-party services.
 
@@ -23,5 +20,8 @@ Al-Quran Cloud (api.alquran.cloud): supplies the Quran text, English translation
 
 Quran audio hosting: the recitation audio files (Mishary Rashid Alafasy) are streamed from the audio host provided by the API.
 
+Made By : ahmedosama2013b@gmail.com
+
+Link : https://deenhistory.netlify.app
 
 <img width="1887" height="1057" alt="DeenHistory" src="https://github.com/user-attachments/assets/f367290a-98f5-41ea-8be3-15394ab42db0" />
